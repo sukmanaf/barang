@@ -64,7 +64,7 @@
 				@foreach($data as $v)
 				<tr>
 					<td>{{$v->nama}}</td>
-					<td>{{helper::rupiah($v->harga)}}</td>
+					<td>{{rupiah($v->harga)}}</td>
 					<td>
 						<a href="/barang/data/{{$v->id}}/edit" class="btn btn-warning">Edit</a>
 						<a href="/barang/data/{{$v->id}}/delete" onclick="return confirm('Apakah Anda Yakin?')" class="btn btn-danger">Hapus</a>
