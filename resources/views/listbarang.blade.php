@@ -55,6 +55,39 @@
 				</div>
 			</div>
 
+			<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form action="/barang/data/create" method="POST">
+									{{csrf_field()}}
+									<div class="form-group">
+										<label for="exampleInputEmail1">Nama</label>
+										<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="nama">
+									</div>
+									<div class="form-group">
+										<label for="exampleInputPassword1">harga</label>
+										<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password" name="harga">
+									</div>
+									
+							</div>
+							<div class="modal-footer">
+									<button type="submit" class="btn btn-primary">Submit</button>
+								</form>
+								<!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+								<!-- <button type="button" class="btn btn-primary">Save </button> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<table class="table table-hover">
 				<tr>
 					<th>nama	</th>
@@ -66,6 +99,9 @@
 					<td>{{$v->nama}}</td>
 					<td>{{rupiah($v->harga)}}</td>
 					<td>
+						<button type="button" class="btn btn-primary " data-toggle="modal" data-target="#exampleModal1">
+					Tambah
+				</button>
 						<a href="/barang/data/{{$v->id}}/edit" class="btn btn-warning">Edit</a>
 						<a href="/barang/data/{{$v->id}}/delete" onclick="return confirm('Apakah Anda Yakin?')" class="btn btn-danger">Hapus</a>
 						

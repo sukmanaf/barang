@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Data;
 use Illuminate\Http\Request;
-
+use Codedge\Fpdf\Fpdf\Fpdf;
+use DB;
 class DataController extends Controller
 {
     /**
@@ -12,6 +13,17 @@ class DataController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function pdf()
+    {
+        $fpdf = new Fpdf;
+        $fpdf->AddPage("L", ['100', '100']);
+        $fpdf->SetFont('Times', 'B', 11);
+
+        $fpdf->Text(10, 10, "Hello FPDF");       
+         
+        $fpdf->Output();
+        exit;
+    }
     public function index()
     {
         $data = \App\Data::all();
@@ -75,6 +87,9 @@ class DataController extends Controller
     {
         $data = \App\Data::find($id);
         $data->update($request->all());
+        // $data = DB::table('barang')
+        //       ->where('id', $id)
+        //       ->update(['nama' => 'sampo']);
         return redirect('/data')->with('sukses','Sukses Edit' );
 
     }

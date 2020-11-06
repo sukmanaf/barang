@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/data', 'DataController@index');
+Route::get('/data/pdf', 'DataController@pdf');
 Route::get('/data/master', 'DataController@master');
 Route::post('/data/create', 'DataController@create');
 Route::get('/data/{id}/edit', 'DataController@edit');
